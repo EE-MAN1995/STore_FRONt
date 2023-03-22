@@ -1,0 +1,69 @@
+﻿@model IEnumerable<STore_FRONt.Models.Order>
+
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_MyDesign.cshtml ";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>deleteAll</title>
+    <link href="~/Styles/StyleSheet7.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h3>Are You Sure You Wont To Delete All ?</h3>
+
+    <table class="table table-bordered" style="font-weight:bold">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Image)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td style="padding-top:6%">
+                    @Html.DisplayFor(modelItem => item.Product_Name)
+                </td>
+                <td  style="padding-top:2%">
+                    <img id="myimage2" src="@Url.Content(item.Product_Image) " style="width:10% ; height:10% ; margin-left:190px" />
+                </td>
+
+                <td  style="padding-top:6%">
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="DeleteALL" class="btn btn-danger" /> |
+            @Html.ActionLink("Back To Basket", "Index")
+        </div>
+    }
+</body>
+</html>

@@ -1,0 +1,1024 @@
+﻿@model IEnumerable<STore_FRONt.Models.Order>
+
+@using STore_FRONt.Controllers
+
+@{
+
+    ViewBag.Title = "cart";
+
+
+    var mytable = STore_FRONt.Controllers.ORderController.YU;
+
+    var x = 10;
+
+
+
+
+
+}
+
+
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
+
+
+<link href="~/Styles/StyleSheet7.css" rel="stylesheet" />
+
+ 
+<script>
+
+    function Myclick() {
+
+       
+
+      
+
+ 
+
+
+
+
+        alert("Order Confirm")
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+    function deleteall() {
+
+
+        window.location.href = "/ORder/deleteAll"
+    }
+
+    function isValidKey(e) {
+        var charCode = e.keyCode || e.which;
+        if (charCode == 8 || charCode == 32 || charCode == charCode) {
+
+
+            console.log(e.code);
+            return false;
+
+
+        }
+        return true;
+    }
+
+
+    function plus() {
+
+
+
+
+        alert("di");
+
+
+        document.getElementById("Q1").value = "Ds"
+    }
+    function KEYPRESS() {
+
+
+
+        var x = document.getElementById("Q1").value;
+
+
+
+
+        if (x == "9") {
+
+            alert("empty")
+
+        }
+
+    }
+
+
+    var MyName;
+
+    var xys;
+
+    var prName;
+
+    var nmm = document.getElementById("Q1").value;
+
+
+    var xc = 2;
+
+
+    //function call2(xxx) {
+
+
+
+    //    switch (xxx) {
+
+    //        case xxx == 1:
+
+
+
+
+    //    }
+
+    //    document.getElementById("tb1").rows[1].cells[1].innerHTML = 1
+
+
+    //    document.getElementById("tb1").rows[2].cells[1].innerHTML = 2
+
+
+
+
+    //    document.getElementById("tb1").rows[3].cells[1].innerHTML = 3
+
+
+
+
+
+    //    document.getElementById("tb1").rows[4].cells[1].innerHTML = 4
+
+
+
+
+
+    //    document.getElementById("tb1").rows[5].cells[1].innerHTML = 5
+
+
+
+
+
+    //    document.getElementById("tb1").rows[6].cells[1].innerHTML = 6
+
+
+
+
+
+    //    document.getElementById("tb1").rows[7].cells[1].innerHTML = 7
+
+
+
+
+    //}
+
+
+
+
+    function call() {
+
+
+
+
+        var d = document.getElementById("td3").innerHTML;
+
+
+
+
+        if (d == 1) {
+
+
+
+            document.getElementById("con").disabled = false
+
+
+            document.getElementById("delete").disabled = false
+
+
+
+        }
+
+
+
+
+
+
+
+
+        var table = document.getElementById("tb1"), sumVal = 0;
+
+        for (var i = 1; i < table.rows.length; i++) {
+            sumVal = sumVal + parseInt(table.rows[i].cells[6].innerHTML);
+        }
+
+        document.getElementById("subs").innerHTML = sumVal
+
+
+        var td3 = document.getElementById("td3").innerHTML
+
+
+        document.getElementById("tb1").rows[1].cells[0].innerHTML = 1
+        document.getElementById("tb1").rows[2].cells[0].innerHTML = 2
+        document.getElementById("tb1").rows[3].cells[0].innerHTML = 3
+        document.getElementById("tb1").rows[4].cells[0].innerHTML = 4
+        document.getElementById("tb1").rows[5].cells[0].innerHTML = 5
+        document.getElementById("tb1").rows[6].cells[0].innerHTML = 6
+        document.getElementById("tb1").rows[7].cells[0].innerHTML = 7
+
+
+        var x = document.getElementById("Q1").innerHTML;
+
+
+
+
+        if (x == 9) {
+
+            alert("empty")
+
+        }
+
+
+
+    }
+
+
+    function incrementValue() {
+
+
+
+        document.getElementById("subs").addEventListener('keydown', function (e) {
+
+            if (e.incrementValue) {
+
+
+                alert("up")
+            }
+
+
+        });
+    }
+
+
+
+    function Hello(param) {
+
+
+
+
+
+        //This code get u the number of the row u are currently in it
+        var cc = param.parentNode.parentNode.rowIndex;
+
+
+
+
+        var QUANT = parseInt(document.getElementById("tb1").rows[cc].cells[4].children[0].value);
+
+        var Price = parseInt(document.getElementById("tb1").rows[cc].cells.namedItem("td5").innerHTML);
+
+        var Factor = QUANT * Price;
+
+        document.getElementById("tb1").rows[cc].cells[6].innerHTML = parseFloat(Factor);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var table = document.getElementById("tb1"),
+            sumVal = 0;
+
+        for (var i = 1; i < table.rows.length; i++) {
+            sumVal = sumVal + parseInt(table.rows[i].cells[6].innerHTML);
+        }
+
+        document.getElementById("subs").innerHTML = sumVal;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+<body onload="call()">
+
+
+
+</body>
+
+
+<table id="tb1" class="table table-bordered " style="  font-weight:bold ; align-items:center ;margin-top:50px">
+    <tr>
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+
+
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Name)
+
+
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Image)
+        </th>
+        <th>
+            <label>Quantity</label>
+        </th>
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            <label>Total</label>
+        </th>
+
+        <th>
+            @Html.Label("Delete Iteam", "Delete Iteam")
+
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+
+
+
+
+
+        <tr id="rw1">
+
+
+
+
+            <td id="td3"  style="padding-top:6%" >
+
+
+
+                @item.ID
+
+
+
+
+            </td>
+
+
+
+
+            <td id="td2"  style="padding-top:6%" >
+
+
+
+
+                <label name="Namee" id="Namee">@item.Product_Name</label>
+
+
+            </td>
+
+
+
+
+
+
+
+
+            <td  style="padding-top:6%" >
+
+
+                @{
+
+                    if (item.Size == "Small" || item.Size == "medium" || item.Size == "Large")
+                    {
+
+                        if (item.Size == "Small")
+                        {
+
+                            @Html.DropDownList("size", new List<SelectListItem>
+        {
+
+        new SelectListItem { Text =item.Size  , Value =item.Size},
+
+        new SelectListItem { Text = "medium", Value = "medium"},
+        new SelectListItem { Text = "Large", Value = "Large"}
+        })
+
+
+
+                        }
+
+
+
+                        if (item.Size == "medium")
+                        {
+
+                            @Html.DropDownList("size", new List<SelectListItem>
+        {
+
+        new SelectListItem { Text =item.Size  , Value =item.Size},
+
+        new SelectListItem { Text = "Small", Value = "Small"},
+        new SelectListItem { Text = "Large", Value = "Large"}
+        })
+
+
+
+                        }
+
+
+
+
+                        if (item.Size == "Large")
+                        {
+
+                            @Html.DropDownList("size", new List<SelectListItem>
+        {
+
+        new SelectListItem { Text =item.Size  , Value =item.Size},
+
+        new SelectListItem { Text = "medium", Value = "medium"},
+        new SelectListItem { Text = "Small", Value = "Samll"}
+        })
+
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+
+
+
+                    else
+                    {
+
+
+
+
+
+
+                        switch (item.Size.ToString())
+                        {
+
+                            case "40":
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+new SelectListItem { Text =item.Size  , Value =item.Size},
+
+new SelectListItem { Text = "41", Value = "41"},
+new SelectListItem { Text = "42", Value = "42"},
+
+new SelectListItem { Text = "43", Value = "43"},
+
+new SelectListItem { Text = "44", Value = "44"},
+
+new SelectListItem { Text = "45", Value = "45"},
+
+ new SelectListItem { Text = "46", Value = "46"},
+
+ new SelectListItem { Text = "47", Value = "47"},
+
+ new SelectListItem { Text = "48", Value = "48"},
+
+
+})
+                                break;
+
+
+
+
+
+
+
+
+
+
+
+                            case "41":
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+
+new SelectListItem { Text =item.Size  , Value =item.Size},
+new SelectListItem { Text = "40", Value = "40"},
+
+new SelectListItem { Text = "42", Value = "42"},
+
+new SelectListItem { Text = "43", Value = "43"},
+
+new SelectListItem { Text = "44", Value = "44"},
+
+new SelectListItem { Text = "45", Value = "45"},
+
+new SelectListItem { Text = "46", Value = "46"},
+
+new SelectListItem { Text = "47", Value = "47"},
+
+new SelectListItem { Text = "48", Value = "48"},
+
+
+})
+
+                                break;
+
+
+
+
+
+                            case "42":
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+new SelectListItem { Text =item.Size  , Value =item.Size},
+
+new SelectListItem { Text = "40", Value = "40"},
+new SelectListItem { Text = "41", Value = "41"},
+
+new SelectListItem { Text = "43", Value = "43"},
+
+new SelectListItem { Text = "44", Value = "44"},
+
+new SelectListItem { Text = "45", Value = "45"},
+
+new SelectListItem { Text = "46", Value = "46"},
+
+new SelectListItem { Text = "47", Value = "47"},
+
+new SelectListItem { Text = "48", Value = "48"},
+
+
+})
+                                break;
+
+
+
+
+
+                            case "43":
+
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+new SelectListItem { Text =item.Size  , Value =item.Size},
+
+new SelectListItem { Text = "40", Value = "40"},
+new SelectListItem { Text = "41", Value = "41"},
+
+
+
+new SelectListItem { Text = "44", Value = "44"},
+
+new SelectListItem { Text = "45", Value = "45"},
+
+new SelectListItem { Text = "46", Value = "46"},
+
+new SelectListItem { Text = "47", Value = "47"},
+
+new SelectListItem { Text = "48", Value = "48"},
+
+
+})
+
+                                break;
+
+
+
+
+                            case "44":
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+
+                               new SelectListItem { Text =item.Size  , Value =item.Size},
+
+new SelectListItem { Text = "40", Value = "40"},
+new SelectListItem { Text = "41", Value = "41"},
+
+new SelectListItem { Text = "42", Value = "42"},
+
+new SelectListItem { Text = "43", Value = "43"},
+
+
+new SelectListItem { Text = "45", Value = "45"},
+
+new SelectListItem { Text = "46", Value = "46"},
+
+new SelectListItem { Text = "47", Value = "47"},
+
+new SelectListItem { Text = "48", Value = "48"},
+
+
+})
+
+                                break;
+
+
+
+
+
+                            case "45":
+
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+                               new SelectListItem { Text =item.Size  , Value =item.Size},
+new SelectListItem { Text = "40", Value = "40"},
+new SelectListItem { Text = "41", Value = "41"},
+
+new SelectListItem { Text = "42", Value = "42"},
+
+new SelectListItem { Text = "43", Value = "43"},
+
+
+
+new SelectListItem { Text = "44", Value = "44"},
+
+
+new SelectListItem { Text = "46", Value = "46"},
+
+new SelectListItem { Text = "47", Value = "47"},
+
+new SelectListItem { Text = "48", Value = "48"},
+
+
+})
+                                break;
+
+
+
+
+
+                            case "46":
+
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+                               new SelectListItem { Text =item.Size  , Value =item.Size},
+new SelectListItem { Text = "40", Value = "40"},
+new SelectListItem { Text = "41", Value = "41"},
+
+new SelectListItem { Text = "42", Value = "42"},
+
+new SelectListItem { Text = "43", Value = "43"},
+
+
+
+new SelectListItem { Text = "44", Value = "44"},
+
+
+new SelectListItem { Text = "45", Value = "45"},
+
+
+new SelectListItem { Text = "47", Value = "47"},
+
+new SelectListItem { Text = "48", Value = "48"},
+
+
+})
+                                break;
+
+
+
+
+
+                            case "47":
+
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+                               new SelectListItem { Text =item.Size  , Value =item.Size},
+new SelectListItem { Text = "40", Value = "40"},
+new SelectListItem { Text = "41", Value = "41"},
+
+new SelectListItem { Text = "42", Value = "42"},
+
+new SelectListItem { Text = "43", Value = "43"},
+
+
+
+new SelectListItem { Text = "44", Value = "44"},
+
+
+new SelectListItem { Text = "45", Value = "45"},
+
+
+new SelectListItem { Text = "47", Value = "47"},
+
+new SelectListItem { Text = "48", Value = "48"},
+
+
+})
+
+
+                                break;
+
+
+
+
+
+
+
+
+
+
+                            case "48":
+
+                                @Html.DropDownList("size", new List<SelectListItem>
+{
+
+                               new SelectListItem { Text =item.Size  , Value =item.Size},
+new SelectListItem { Text = "40", Value = "40"},
+new SelectListItem { Text = "41", Value = "41"},
+
+new SelectListItem { Text = "42", Value = "42"},
+
+new SelectListItem { Text = "43", Value = "43"},
+
+
+
+new SelectListItem { Text = "44", Value = "44"},
+
+
+new SelectListItem { Text = "45", Value = "45"},
+
+
+new SelectListItem { Text = "46", Value = "46"},
+new SelectListItem { Text = "47", Value = "47"},
+
+
+
+
+})
+
+
+
+
+                                break;
+
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    }
+
+
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+            </td>
+
+            <td  style="padding-top:2%" >
+
+                <img id="myimage1" src="@Url.Content(item.Product_Image)" style="width:30%;height:30% ; margin-left:30% ; border:solid" />
+
+            </td>
+
+            <td oninput="Hello(this)" id="Q1"  style="padding-top:6%" >
+
+
+
+
+
+
+
+
+                <input maxlength="9" onkeydown="return isValidKey(event)" onfocus="return null" min="1" max="9" id="Q1" type="number" value=@item.QUANT oninput="Hello(this)" />
+
+
+
+
+
+
+
+
+
+
+            </td>
+
+
+
+
+
+            <td id="td5"  style="padding-top:6%" >
+
+
+
+                @item.Price
+
+
+            </td>
+
+
+            <td  style="padding-top:6%" >
+
+
+
+
+                @item.Total_Price
+
+
+            </td>
+
+
+
+            <td  style="padding-top:6%" >
+
+
+
+
+                @Html.ActionLink("Delete", "Delete", new { name = item.Product_Name })
+
+
+
+
+            </td>
+
+        </tr>
+
+
+
+
+
+
+
+
+
+                    }
+
+</table>
+
+
+
+
+
+<ul class="list-group list-group-horizontal" style="padding-left:70%">
+
+    <li class="list-group-item d-flex justify-content-between align-items-center"><h4>Total Price</h4></li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <h4 id="subs">0</h4>
+    </li>
+
+
+</ul>
+
+
+<ul class="list-group list-group-horizontal" style="padding-left:70%">
+
+    <li class="list-group-item d-flex justify-content-between align-items-center" style="  width:50%">
+
+
+
+
+
+
+
+        @using (Html.BeginForm("deleteAll", "ORder", FormMethod.Post))
+        {
+            <button disabled onclick="Myclick()" type="submit" style="width: 120%; background-color: #2a6afe" class="btn btn-secondary" id="con"> Confirm Order </button>
+        }
+
+
+
+
+
+
+
+
+    </li>
+        
+
+
+
+
+
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+
+        <button class="btn btn-danger" disabled onclick="deleteall()" id="delete" style="width:100%" name="jn">DeleteALL</button>
+
+
+    </li>
+</ul>
+
+
+<ul class="list-group list-group-horizontal" style="padding-left:70%">
+
+     
+
+
+
+
+
+
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+
+
+        <a href="/Contact_Infos">Your Contact Information for the Delivery</a>
+
+     
+
+    </li>
+</ul>

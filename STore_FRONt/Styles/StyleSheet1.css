@@ -1,0 +1,102 @@
+﻿ 
+
+body {
+    background-image: url(../Images/pick.png)
+}
+
+.container {
+    position: relative;
+    width: 90%;
+    height: 30%
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 50%;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+td:hover img {
+    opacity: 0.3;
+}
+
+td:hover .middle {
+    opacity: 1;
+}
+
+
+.conti {
+    width: 390px;
+    height: 500px
+}
+
+li:hover .conti {
+    width: 100%;
+    height: 100%;
+    position: center;
+    transition-property: height, width;
+    transition-duration: 1s, 500ms;
+    transition-timing-function: ease;
+    transition-delay: 0s, 1s;
+}
+
+
+
+.main {
+    width: 600px;
+    height: 690px
+}
+
+
+
+
+
+
+
+
+.text {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
+
+
+#result {
+    border: 1px dotted #ccc;
+    padding: 13px;
+}
+
+    #result ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        #result ul li {
+            padding: 5px 0;
+        }
+
+            #result ul li:hover {
+                background: #eee;
+            }
+
+
+
+li:hover {
+    font-size: 19px
+}

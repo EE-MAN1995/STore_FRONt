@@ -1,0 +1,411 @@
+﻿@model STore_FRONt.Models.Product
+
+ 
+
+
+@{
+
+
+}
+
+
+
+
+<link href="~/Styles/StyleSheet7.css" rel="stylesheet" />
+<script>
+
+
+
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("con");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+
+
+<div class="jumbotron">
+
+
+    <div class="container">
+
+
+
+        <div class="row">
+
+
+
+            <div class="col-lg-6">
+
+                <table   style="padding-top:40px ; width:40%">
+
+                    <tr style="width:290px">
+
+
+
+                        <td style="padding-left:0% ; padding-top:60px ; align-items:center ; text-align:center">
+
+                            <img id="myimage" src="@Url.Content(Model.Image)" style="width:390px ; height:450px; border:solid  ; align-items:center" />
+
+                        </td>
+
+
+                        <td style=" width:190px ;font-size:20px; padding-left: 49px; font-family: 'Times New Roman', Times, serif ">
+
+
+                            @using (Html.BeginForm("Create", "ORder", FormMethod.Post))
+                            {
+
+                                List<string> ds = new List<string>() { "Small", "Meduim", "Large" };
+
+
+
+                                <input type="text" name="id" value="@Model.Id" style="visibility:hidden" />
+
+                                <input type="text" value=@Model.Image name="ProdImg" style="visibility:hidden" />
+                                <br />
+
+                      
+                                <label style="font-weight:bold">@Model.Name</label>
+                                
+                                
+                                <input name="ProdName" type="text" value="@Model.Name" style="visibility:hidden" />
+
+                                <br />
+
+                                <label style="font-weight:bold">Price:</label> <label>@Model.Price</label><input type="text" name="Price" value="@Model.Price" style="visibility:hidden" />
+                                <br />
+
+
+
+
+                                if (
+
+                                Model.Id == 29 ||
+                                Model.Id == 30 ||
+                                Model.Id == 31 ||
+                                Model.Id == 32 ||
+                                Model.Id == 33 ||
+                                Model.Id == 34 ||
+                                Model.Id == 35 ||
+                                Model.Id == 36 ||
+                                Model.Id == 37 ||
+                                Model.Id == 38 ||
+                                Model.Id == 39 ||
+                                Model.Id == 40 ||
+                                Model.Id == 41 ||
+                                Model.Id == 42 ||
+                                Model.Id == 43 ||
+                                Model.Id == 44 ||
+                                Model.Id == 45 ||
+                                Model.Id == 46 ||
+                                Model.Id == 47 ||
+                                Model.Id == 48 ||
+                                Model.Id == 49 ||
+                                Model.Id == 50 ||
+                                Model.Id == 51 ||
+                                Model.Id == 52 ||
+                                Model.Id == 53 ||
+                                Model.Id == 54
+
+
+                                )
+                                {
+
+                                    <label style="font-weight:bold">Size:</label>@Html.DropDownList("size", new List<SelectListItem>
+{
+new SelectListItem { Text = "40", Value = "40"},
+new SelectListItem { Text = "41", Value = "41"},
+new SelectListItem { Text = "42", Value = "42"},
+new SelectListItem { Text = "43", Value = "43"},
+new SelectListItem { Text = "44", Value = "44"},
+new SelectListItem { Text = "45", Value = "45"},
+new SelectListItem { Text = "46", Value = "46"},
+new SelectListItem { Text = "47", Value = "47"},
+new SelectListItem { Text = "48", Value = "48"}
+})
+                                }
+
+                                else
+                                {
+
+
+                                    <label style="font-weight:bold">Size:</label>@Html.DropDownList("size", new List<SelectListItem>
+{
+new SelectListItem { Text = "Small", Value = "Small"},
+new SelectListItem { Text = "medium", Value = "medium"},
+new SelectListItem { Text = "Large", Value = "Large"}
+})
+                                }
+
+
+
+
+
+
+                                <br />
+                               <br />
+                                 
+
+
+
+                                <label style="font-weight:bold">Quant:</label>
+
+                                @Html.DropDownList("quant", new List<SelectListItem>
+                     {
+                     new SelectListItem { Text = "1", Value = "1"},
+                     new SelectListItem { Text = "2", Value = "2"},
+                       new SelectListItem { Text = "3", Value = "3"},
+                          new SelectListItem { Text = "4", Value = "4"},
+                     new SelectListItem { Text = "5", Value = "5"},
+                       new SelectListItem { Text = "6", Value = "6"},
+                             new SelectListItem { Text = "7", Value = "7"},
+                          new SelectListItem { Text = "8", Value = "8"},
+                     new SelectListItem { Text = "9", Value = "9"},
+
+
+
+                     })
+
+
+
+                                <br />
+
+                                <br />
+
+
+                                <input style=" background-color: #2a6afe ; width:50%" class="btn btn-secondary" type="submit" value="Add To Cart" />
+
+
+
+
+                                <br />
+
+                                <br />
+
+
+                                if (@ViewBag.Result == "Successfuly Add to the Cart")
+                                {
+
+                                    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Result");
+            };
+                                    </script>
+
+
+
+
+
+                                }
+
+                                if (@ViewBag.Result == "You Alrady Add This Product")
+                                {
+
+
+
+
+
+
+                                    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Result");
+            };
+                                    </script>
+
+
+
+
+
+
+
+
+
+
+                                }
+
+                                if (@ViewBag.Result == "Maxmum Product to purches is 6")
+                                {
+
+                                    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Result");
+            };
+                                    </script>
+
+
+                                }
+
+
+
+
+
+
+                            }
+
+
+
+
+
+
+
+
+
+
+                        </td>
+                    </tr>
+
+
+
+
+                </table>
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <table class="table table-bordered" style=" font-size: 16px; text-align: center; width:40% ; margin-left: 378px ; margin-top: 10px ">
+
+                    <tr>
+
+                        <td style="  background-color: #2a6afe; color: white ">
+
+                            Products Catagories
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <a href="/NBA_Jersys/Page1#" style="text-decoration:none">Nba Jersy</a>
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <a href="/SHIRTS/Page1" style="text-decoration:none">T Shirts</a>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <a href="/SHOES/Page1#" style="text-decoration:none">Shoes</a>
+
+
+                        </td>
+                    </tr>
+
+
+
+
+
+
+                </table>
+
+
+
+
+                <table class="table table-bordered" style="font-size: 16px; margin-left: 400px ;  text-align: center; width: 35% ">
+
+                    <tr>
+
+                        <td style="background-color: #2a6afe; color: white">
+
+                            Check Out Also
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <div class="card-group" style="font-family:'Times New Roman'">
+
+                                <img id="myimage2" src="~/Images/NBAJersys/js11.jpg" class="card-img-top" style=" border:solid; align-items:center; margin-left:25px;  height: 150px ; width:120px" alt="Avatar" />
+
+                                <p class="card-header" style="width: 90%; border: solid; margin-top: 10px; font-weight: bolder; margin-left: 10px ; font-size:15px">Atlanta Hawks</p>
+
+
+
+                                <a class="btn btn-secondary" href="/Products/Details/11" style="width: 90%; margin-top: 5px; margin-left: 10px; background-color: #2a6afe">View</a>
+
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+
+                            <div class="card-group" style="font-family:'Times New Roman'">
+
+                                <img id="myimage1" src="~/Images/NBAJersys/js9.jpg" class="card-img-top" style=" border:solid; align-items:center; margin-left:25px;  height: 150px ; width:120px" alt="Avatar" />
+
+                                <p class="card-header" style="width: 90%; border: solid; margin-top: 10px; font-weight: bolder; margin-left: 10px ; font-size:15px">Indiana Pacers</p>
+
+
+
+                                <a class="btn btn-secondary" href="/Products/Details/9" style="width: 90%; margin-top: 5px; margin-left: 10px; background-color: #2a6afe">View</a>
+
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+
+
+
+
+                </table>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+html {
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+ 
+
+ 
+body {
+    margin-bottom: 60px;
+}
+ 
+img {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .3s ease;
+    backface-visibility: hidden;
+}
+
+ 
+
+table{
+
+
+    width:100%
+
+
+
+}
+

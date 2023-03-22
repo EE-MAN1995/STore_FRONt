@@ -1,0 +1,55 @@
+﻿ 
+
+.r1  {
+    width: 90%;
+ height:480px 
+}
+ 
+
+tr, td:hover .r1 {
+    transition-property:  height, width , margin-left;
+    transition-duration: 1s, 500ms;
+    transition-timing-function: ease;
+    transition-delay: 0s, 1s;
+ 
+   
+    position: center;
+    margin-left: 10px;
+    margin-top:10px
+}
+
+ 
+ .r1:hover h5{
+        
+    background-color:black
+}
+
+  
+
+
+ img {
+ 
+     height:80%;
+     width:10%;
+    border: solid
+}
+
+h3{
+
+    border:solid
+}
+
+h5{
+
+    border-color:aqua;
+}
+
+a{
+
+    border-color:black;
+    inset-inline:unset;
+    text-underline-offset:unset
+}
+p{
+
+}
